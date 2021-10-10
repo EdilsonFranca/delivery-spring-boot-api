@@ -43,7 +43,7 @@ public class ProductController {
 	private CategoryRepository repositoryCategory;
 	
 	 //Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "src/main/resources/static/photos";
+        private static String UPLOADED_FOLDER = "src/main/resources/static/photos";
     
 
 	@GetMapping(path = {"{id}"})
@@ -79,7 +79,7 @@ public class ProductController {
 			@Valid Product product) throws IOException {
 
 			if (multipartFile != null && !multipartFile.isEmpty()) {
-			    String fileName =  new Date().getTime() + StringUtils.cleanPath(multipartFile.getOriginalFilename());
+			        String fileName =  new Date().getTime() + StringUtils.cleanPath(multipartFile.getOriginalFilename());
 				product.setPhoto(fileName);
 				FileUploadUtil.saveFile(UPLOADED_FOLDER, fileName, multipartFile);
 			}
@@ -94,15 +94,15 @@ public class ProductController {
 			@RequestParam(value = "photo2",required = false) MultipartFile multipartFile ,
 			@Valid Product product) throws IOException {
 
-		if (multipartFile != null && !multipartFile.isEmpty())
+	    if (multipartFile != null && !multipartFile.isEmpty())
 	    {
-		    String fileName =  new Date().getTime() + StringUtils.cleanPath(multipartFile.getOriginalFilename());
-			product.setPhoto(fileName);
-			FileUploadUtil.saveFile(UPLOADED_FOLDER, fileName, multipartFile);
-		}
+		 String fileName =  new Date().getTime() + StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		 product.setPhoto(fileName);
+		 FileUploadUtil.saveFile(UPLOADED_FOLDER, fileName, multipartFile);
+	    }
 
-		repository.save(product);
-		return new ResponseEntity<>(HttpStatus.OK);
+	    repository.save(product);
+	    return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }
