@@ -46,13 +46,13 @@ public class ProductController {
         private static String UPLOADED_FOLDER = "src/main/resources/static/photos";
     
 
-	@GetMapping(path = {"{id}"})
+	@GetMapping(path = {"/{id}"})
 	public ProductDTO findById(@PathVariable long id){
 		return service.findById(id);
 	}
 	
 	
-	@RequestMapping({"spotlight"})
+	@RequestMapping({"/spotlight"})
 	public ResponseEntity<List<Product>> findAllBySpotlight(){
 		return ResponseEntity.ok(service.find());
 	}
@@ -63,7 +63,7 @@ public class ProductController {
 	}
 	
 
-	@DeleteMapping(path ={"{id}"})
+	@DeleteMapping(path ={"/{id}"})
 	public ResponseEntity <?> delete(@PathVariable long id) {
 	   return repository.findById(id)
 	           .map(record -> {
@@ -89,7 +89,7 @@ public class ProductController {
 	}
 
 	@Transactional
-	@PutMapping(value = "{id}")
+	@PutMapping(value = "/{id}")
 	public ResponseEntity<?> update(
 			@RequestParam(value = "photo2",required = false) MultipartFile multipartFile ,
 			@Valid Product product) throws IOException {
