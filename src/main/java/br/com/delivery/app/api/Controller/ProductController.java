@@ -29,7 +29,7 @@ import br.com.delivery.app.Service.ProductService;
 import br.com.delivery.app.Util.FileUploadUtil;
 
 @RestController
-@CrossOrigin(origins="*",maxAge = 3600)
+@CrossOrigin(origins = "https://bigburger009.herokuapp.com", maxAge = 3600)
 @RequestMapping({"/api/product"})
 public class ProductController {
 	
