@@ -21,7 +21,7 @@ public class DeliveryApplication {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**").allowedOrigins("GET", "POST", "PUT", "DELETE")
-                        .allowedOrigins("http://localhost:3000");
+                        .allowedOrigins("https://bigburger009.herokuapp.com");
             }
         };
     }
