@@ -53,9 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		                  http.headers().addHeaderWriter(
-                                     new StaticHeadersWriter("Access-Control-Allow-Origin", "*"))
-				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+		                  http.headers().cors().and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.authorizeRequests().antMatchers("/api/auth/**").permitAll()
 				.antMatchers("/api/dashboard").permitAll()
