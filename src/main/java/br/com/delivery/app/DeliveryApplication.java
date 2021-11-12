@@ -14,15 +14,5 @@ public class DeliveryApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DeliveryApplication.class, args);
 	}
-	
-	   @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurerAdapter() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("GET", "POST", "PUT", "DELETE")
-                        .allowedOrigins("https://bigburger009.herokuapp.com");
-            }
-        };
-    }
+
 }
