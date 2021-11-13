@@ -1,3 +1,4 @@
+
 package br.com.delivery.app.Security;
 
 import br.com.delivery.app.Security.jwt.AuthEntryPointJwt;
@@ -50,13 +51,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-  @Override
-  protected void configure(HttpSecurity http) throws Exception {
-    http.requiresChannel()
-      .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
-      .requiresSecure();
-  }
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		                  http.requiresChannel()
+                                 .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
+                                 .requiresSecure()
+				.authorizeRequests().antMatchers("/api/auth/**").permitAll()
+				.antMatchers("/api/dashboard").permitAll()
+				.antMatchers("/api/auth/signup").permitAll()
+				.antMatchers("/api/category/product").permitAll()
+				.antMatchers("/api/product/spotlight").permitAll()
+				.antMatchers("/api/order").permitAll()
+				.antMatchers("/api/order/{id}").permitAll()
+				.antMatchers(HttpMethod.POST, "/users").permitAll()
+				.antMatchers(HttpMethod.POST, "/auth").permitAll()
+				.anyRequest().authenticated();
+
+		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+	}
 
 
 	@Override
@@ -64,3 +77,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers("/photos/*");
 	}
 }
+
