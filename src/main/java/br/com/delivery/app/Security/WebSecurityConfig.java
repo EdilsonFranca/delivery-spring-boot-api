@@ -56,7 +56,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		                http.requiresChannel()
                                 .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
                                 .requiresSecure()
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 				.authorizeRequests().antMatchers("/api/auth/**").permitAll()
 				.antMatchers("/api/dashboard").permitAll()
 				.antMatchers("/api/auth/signup").permitAll()
