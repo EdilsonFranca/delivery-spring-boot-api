@@ -57,7 +57,6 @@
 		</dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-validator</artifactId>
 		    <artifactId>hibernate-entitymanager</artifactId>
 		</dependency>
 		<dependency>
