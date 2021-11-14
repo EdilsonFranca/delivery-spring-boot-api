@@ -55,9 +55,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>compile</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
 		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-validator</artifactId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>6.0.0.Alpha9</version>
+		    <type>pom</type>
 		</dependency>
 		<dependency>
 		    <groupId>javax.xml.bind</groupId>
