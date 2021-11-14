@@ -85,6 +85,11 @@
 		    <artifactId>javassist</artifactId>
 		    <version>3.25.0-GA</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.0.10.Final</version>
+		</dependency>
     	</dependencies>
 
 	<build>
