@@ -1,6 +1,7 @@
 
 package br.com.delivery.app.Security;
 
+import br.com.delivery.app.Security.UserDetailsServiceImpl;
 import br.com.delivery.app.Security.jwt.AuthEntryPointJwt;
 import br.com.delivery.app.Security.jwt.AuthTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
