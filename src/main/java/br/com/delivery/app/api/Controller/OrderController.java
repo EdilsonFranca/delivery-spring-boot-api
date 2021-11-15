@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import br.com.delivery.app.Model.Order;
 import br.com.delivery.app.Repository.OrderRepository;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
-@CrossOrigin(origins="*",maxAge = 3600)
 @RequestMapping("/api/order")
 public class OrderController {
 	@Autowired  
