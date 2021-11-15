@@ -14,7 +14,7 @@ import br.com.delivery.app.Repository.OrderRepository;
 
 @RestController
 @CrossOrigin(origins="*",maxAge = 3600)
-@RequestMapping({"/api/order"})
+@RequestMapping("/api/order")
 public class OrderController {
 	@Autowired  
 	private OrderRepository order_product;
@@ -25,7 +25,7 @@ public class OrderController {
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		Date date = new Date();
 		order.setCreate_data( dateFormat.format(date));
-	    order_product.save(order);
+	        order_product.save(order);
 		return ResponseEntity.ok(order);
 	}
 	
