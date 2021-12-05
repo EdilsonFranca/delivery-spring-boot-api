@@ -76,7 +76,7 @@ public class ProductController {
 	@PostMapping
 	public ResponseEntity<?> create(
 			@RequestParam(value = "photo2",required = false) MultipartFile multipartFile ,
-			@Valid Product product) throws IOException {
+			@Valid @RequestBody Product product) throws IOException {
 
 			if (multipartFile != null && !multipartFile.isEmpty()) {
 			        String fileName =  new Date().getTime() + StringUtils.cleanPath(multipartFile.getOriginalFilename());
